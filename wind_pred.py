@@ -19,23 +19,23 @@ def handle_data():
 
 
 # Create DataFrame with the received data
-      input_data = {
-      "wind_speed_m_s": wind_speed,
-      "pressure_atm": pressure,
-      "wind_direction_deg": wind_direction,
-      "air_temperature_c": air_temperature,
-      "Month": month
-      }
-      input_df = pd.DataFrame([input_data])
+   input_data = {
+   "wind_speed_m_s": wind_speed,
+   "pressure_atm": pressure,
+   "wind_direction_deg": wind_direction,
+   "air_temperature_c": air_temperature,
+   "Month": month
+   }
+   input_df = pd.DataFrame([input_data])
 
-      predicted_wind_energy = regr_energy.predict(input_df)
-      predicted_wind_energy = predicted_wind_energy.tolist()
+   predicted_wind_energy = regr_energy.predict(input_df)
+   predicted_wind_energy = predicted_wind_energy.tolist()
 
 # Create response with CORS headers
-      response = make_response(jsonify({'predicted_wind_energy': predicted_wind_energy[0]}))
-      response.headers['Access-Control-Allow-Origin'] = '*'
-      response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
-      response.headers['Access-Control-Allow-Methods'] = 'GET, POST'
+   response = make_response(jsonify({'predicted_wind_energy': predicted_wind_energy[0]}))
+   response.headers['Access-Control-Allow-Origin'] = '*'
+   response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+   response.headers['Access-Control-Allow-Methods'] = 'GET, POST'
 
    return response
 
