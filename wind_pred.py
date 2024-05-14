@@ -2,10 +2,10 @@ from flask import Flask, request, jsonify, make_response
 import joblib
 import pandas as pd
 
-wind_pred = Flask(__name__)
+app = Flask(__name__)
 regr_energy = joblib.load('wind_prediction.joblib')
 
-@wind_pred.route('/wind', methods=['POST', 'GET'])
+@app.route('/wind', methods=['POST', 'GET'])
 def handle_data():
    if request.method == 'POST':
       jdata = request.json
@@ -40,7 +40,7 @@ def handle_data():
    return response
 
 if __name__ == '__main__':
- wind_pred.run(debug=True, host='0.0.0.0', port=3000)
+ app.run(debug=True, host='0.0.0.0', port=3000)
 
 
 
