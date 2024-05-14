@@ -7,6 +7,7 @@ regr_energy = joblib.load('wind_prediction.joblib')
 
 @app.route('/wind', methods=['POST', 'GET'])
 def handle_data():
+   response = None   
    if request.method == 'POST':
       jdata = request.json
    elif request.method == 'GET':
