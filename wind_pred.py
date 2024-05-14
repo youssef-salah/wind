@@ -40,7 +40,7 @@ def handle_data():
  return response
 
 if __name__ == '__main__':
- app.run(debug=True, host='172.20.160.1', port=3000)
+ app.run()
 
 
 
