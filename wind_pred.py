@@ -15,8 +15,10 @@ def handle_data():
          
       elif request.method == 'GET':
    # Get parameters from query string
-         params = ("wind_speed_m_s","pressure_atm","wind_direction_deg","air_temperature_c","Month")
-         jdata = {params : float (request.args.get(param , 0)) for param in params}
+         params = ["wind_speed_m_s","pressure_atm",
+                   "wind_direction_deg","air_temperature_c",
+                   "Month"]
+         jdata = {param : float (request.args.get(param , 0)) for param in params}
          jdata_df = pd.DataFrame([jdata])
 # Create DataFrame with the received data
       
