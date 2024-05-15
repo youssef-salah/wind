@@ -21,10 +21,10 @@ def handle_data():
 # Create DataFrame with the received data
       
       predicted_wind_energy = regr_energy.predict(jdata_df)
-      
+      predicted_wind_energy = predicted_wind_energy.tolist()
 
 # Create response with CORS headers
-      response = make_response(jsonify({'predicted_wind_energy': predicted_wind_energy}))
+      response = make_response(jsonify({'predicted_wind_energy': predicted_wind_energy[0]}))
       response.headers['Access-Control-Allow-Origin'] = '*'
       response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
       response.headers['Access-Control-Allow-Methods'] = 'GET, POST'
